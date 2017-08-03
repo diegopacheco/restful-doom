@@ -23,7 +23,7 @@
 #include <ctype.h>
 
 #include "SDL.h"
-#include "SDL_mixer.h"
+#include "SDL2/SDL_mixer.h"
 
 #include "config.h"
 #include "doomtype.h"
@@ -103,7 +103,7 @@ static const char *subst_config_filenames[] =
 
 static boolean music_initialized = false;
 
-// If this is true, this module initialized SDL sound and has the 
+// If this is true, this module initialized SDL sound and has the
 // responsibility to shut it down
 
 static boolean sdl_was_initialized = false;
@@ -1113,7 +1113,7 @@ static void I_SDL_UnRegisterSong(void *handle)
     Mix_FreeMusic(music);
 }
 
-// Determine whether memory block is a .mid file 
+// Determine whether memory block is a .mid file
 
 static boolean IsMid(byte *mem, int len)
 {
@@ -1321,4 +1321,3 @@ music_module_t music_sdl_module =
     I_SDL_MusicIsPlaying,
     I_SDL_PollMusic,
 };
-

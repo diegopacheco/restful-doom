@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <SDL_net.h>
+#include <SDL2/SDL_net.h>
 
 #include "api.h"
 #include "d_player.h"
@@ -53,7 +53,7 @@ void API_Init(int port)
     if (!(set = SDLNet_AllocSocketSet(10)))
     {
         fprintf(stderr, "Error: SDLNet_AllocSocketSet: %s\n", SDLNet_GetError());
-        exit(EXIT_FAILURE); 
+        exit(EXIT_FAILURE);
     }
 
     for (int i = 0; i < NUMKEYS; i++) {
@@ -89,7 +89,7 @@ void API_RunIO()
                 API_SetHUDMessage(msg);
                 response = API_RouteRequest(request);
             }
-            else 
+            else
             {
                 response = API_CreateErrorResponse(400, "invalid request");
             }
@@ -147,18 +147,18 @@ api_response_t API_RouteRequest(api_request_t req)
     char *method = req.method;
     char *path = req.url.path;
     cJSON *json = cJSON_Parse(req.body);
-    
+
     if (strcmp(path, "api/message") == 0)
     {
         if (strcmp(method, "POST") == 0)
         {
             return API_PostMessage(json);
-        } 
+        }
         return API_CreateErrorResponse(405, "Method not allowed");
     }
     else if (strcmp(path, "api/player") == 0)
     {
-        if (strcmp(method, "PATCH") == 0) 
+        if (strcmp(method, "PATCH") == 0)
         {
             return API_PatchPlayer(json);
         }
@@ -196,7 +196,7 @@ api_response_t API_RouteRequest(api_request_t req)
     }
     else if (strcmp(path, "api/world/objects") == 0)
     {
-        if (strcmp(method, "POST") == 0) 
+        if (strcmp(method, "POST") == 0)
         {
             return API_PostObject(json);
         }
@@ -320,7 +320,7 @@ fixed_t API_FloatToFixed(float val) {
     return (int)(val * (1<<16));
 }
 
-int angleToDegrees(angle_t angle) 
+int angleToDegrees(angle_t angle)
 {
     return ((double)angle / ANG_MAX) * 360;
 }
