@@ -38,6 +38,10 @@ Run `make` from the src (or root) directory. `src/restful-doom` will be created 
 
 The DOOM engine is open source, but assets (art, maps etc) are not. You'll need to download an appropriate [WAD file](https://en.wikipedia.org/wiki/Doom_WAD) separately.
 
+## WADL
+
+Download here: http://www.pc-freak.net/blog/doom-1-doom-2-doom-3-game-wad-files-for-download-playing-doom-on-debian-linux-via-freedoom-open-source-doom-engine/
+
 To run restful-doom on port 6666:
 ```
 src/restful-doom -iwad <path/to/doom1.wad> -apiport 6666 ...
