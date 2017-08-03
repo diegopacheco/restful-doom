@@ -52,6 +52,7 @@ src/restful-doom -iwad <path/to/doom1.wad> -apiport 6666 ...
 ```bash
 curl --request GET http://127.0.0.1:6666/api/player
 curl --request PATCH --data '{"weapon": 1}' http://127.0.0.1:6666/api/player
+curl --request PATCH --data '{"armor": 100}' http://127.0.0.1:6666/api/player
 ```
 
 ## Thanks!
