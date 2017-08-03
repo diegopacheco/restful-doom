@@ -55,6 +55,8 @@ curl --request PATCH --data '{"weapon": 1}' http://127.0.0.1:6666/api/player
 curl --request PATCH --data '{"armor": 100}' http://127.0.0.1:6666/api/player
 ```
 
+More on: https://www.youtube.com/watch?v=Km6_AwzZmf0
+
 ## Thanks!
 [chocolate-doom](https://github.com/chocolate-doom/chocolate-doom) team  
 [cJSON](https://github.com/DaveGamble/cJSON) - JSON parsing / generation  
